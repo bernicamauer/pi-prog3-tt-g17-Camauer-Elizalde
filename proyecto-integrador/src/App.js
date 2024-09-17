@@ -1,3 +1,5 @@
+import React from "react";
+
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
@@ -19,6 +21,8 @@ function App() {
           
           
         </Switch>
+
+        
 
       <Footer />
     </>
