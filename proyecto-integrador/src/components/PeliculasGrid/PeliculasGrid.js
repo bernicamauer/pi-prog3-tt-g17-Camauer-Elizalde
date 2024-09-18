@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import Pelicula from "../Pelicula/Pelicula";
 import "./PeliculaGrid.css"; 
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 
 class PeliculasGrid extends Component {
@@ -34,7 +33,6 @@ class PeliculasGrid extends Component {
             }
         </section>
 
-        <button><Link to="/verTodas">Ver todas</Link></button>
         </>
         )
     }
