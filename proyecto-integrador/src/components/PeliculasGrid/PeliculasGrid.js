@@ -13,7 +13,7 @@ class PeliculasGrid extends Component {
     }
 
     componentDidMount(){
-        fetch("https://api.themoviedb.org/3/movie/popular?api_key=9458a99baf5a9ba3fe341cd43217ef95&query=terminator")
+        fetch(this.props.endPoint)
         .then((response) => response.json())
         .then((data) => this.setState(
             {datos: this.setState({
