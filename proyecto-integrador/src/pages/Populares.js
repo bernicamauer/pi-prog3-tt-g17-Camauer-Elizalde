@@ -7,6 +7,7 @@ class Populares extends Component {
         super();
         this.state= {
             peliculas:[],
+            isLoading:true
         }
     }
 
@@ -15,7 +16,8 @@ class Populares extends Component {
         .then((response) => response.json())
         .then((data) => this.setState(
             {datos: this.setState({
-                peliculas:data.results})
+                peliculas:data.results,
+            isLoading:false})
             }))
         .catch(error => console.log(error));
         
@@ -26,13 +28,18 @@ class Populares extends Component {
         return (
         <>
         <section className='cardContainer'>
-            {
-               this.state.peliculas.map((pelicula, idx) => 
-                (<Pelicula pelicula= {pelicula} key= {idx}/>))
-               
-            }
-        </section>
-
+    {this.state.isLoading ? (
+        <div className="lds-spinner">
+            <div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div>
+        </div>
+    ) : (
+        this.state.peliculas.map((pelicula, idx) => (
+            <Pelicula pelicula={pelicula} key={idx} />
+        ))
+    )}
+</section>
         </>
         )
     }

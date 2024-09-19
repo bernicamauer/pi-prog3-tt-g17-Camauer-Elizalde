@@ -7,6 +7,7 @@ class Cartelera extends Component {
         super();
         this.state= {
             peliculas:[],
+            isLoading: true
         }
     }
 
@@ -15,7 +16,8 @@ class Cartelera extends Component {
         .then((response) => response.json())
         .then((data) => this.setState(
             {datos: this.setState({
-                peliculas:data.results})
+                peliculas:data.results,
+                isLoading:false})
             }))
         .catch(error => console.log(error));
         
@@ -25,13 +27,22 @@ class Cartelera extends Component {
     render() {
         return (
         <>
-        <section className='cardContainer'>
-            {
-               this.state.peliculas.map((pelicula, idx) => 
-                (<Pelicula pelicula= {pelicula} key= {idx}/>))
+       <section className='cardContainer'>
+    {this.state.isLoading ? (
+        <div className="lds-spinner">
+            <div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div>
+        </div>
+    ) : (
+        this.state.peliculas.map((pelicula, idx) => (
+            <Pelicula pelicula={pelicula} key={idx} />
+        ))
+    )}
+</section>
+
                
-            }
-        </section>
+       
 
         </>
         )
