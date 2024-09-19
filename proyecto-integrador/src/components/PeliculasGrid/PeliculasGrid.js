@@ -32,7 +32,8 @@ class PeliculasGrid extends Component {
                
             }
         </section>
-
+        
+        
         </>
         )
     }

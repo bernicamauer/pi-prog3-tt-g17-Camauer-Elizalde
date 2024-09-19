@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import "./Pelicula.css"
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 class Pelicula extends Component {
     constructor(props) {
@@ -19,7 +20,7 @@ class Pelicula extends Component {
     
     
     render() {
-        const {poster_path, original_title, overview} = this.props.pelicula;
+        const {poster_path, original_title, overview,id} = this.props.pelicula;
         console.log(poster_path);
         
         return (
@@ -40,7 +41,7 @@ class Pelicula extends Component {
 
             </section> )} 
 
-            <button> Ir a detalle</button> 
+            <Link to={`/pelicula/id/${id}`}>Ir a detalle</Link>
             <button> Agregar/ quitar favoritos</button> 
 
 

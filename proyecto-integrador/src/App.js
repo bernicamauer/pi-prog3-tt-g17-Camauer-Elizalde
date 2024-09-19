@@ -7,6 +7,8 @@ import Home from "./pages/Home";
 import Favoritos from "./pages/Favoritos";
 import Populares from "./pages/Populares";
 import Cartelera from "./pages/Cartelera";
+import Detalle from "./pages/Detalle";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -18,6 +20,10 @@ function App() {
           <Route exact path="/favoritos" component={Favoritos} />
           <Route exact path="/peliculaspopulares" component={Populares} />
           <Route exact path="/cartelerapeliculas" component={Cartelera} />
+          <Route exact path="/pelicula/id/:id" component={Detalle} />
+          <Route exact path="" component={NotFound}/> 
+
+
           
           
         </Switch>
