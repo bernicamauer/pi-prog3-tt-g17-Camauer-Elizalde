@@ -26,7 +26,7 @@ class Pelicula extends Component {
         return (
             <>
             <article className='pelicula-single'>
-            <img src={`/img/${poster_path}`} alt="" />
+            <img src={`https://image.tmdb.org/t/p/original/${poster_path}`} alt="" />
             <h2> {original_title}</h2> 
             
             
