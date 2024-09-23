@@ -5,7 +5,6 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 class Pelicula extends Component {
     constructor(props) {
         super(props);
-        console.log(props);
         
         this.state= {
             verDescripcion: false
@@ -21,7 +20,6 @@ class Pelicula extends Component {
     
     render() {
         const {poster_path, original_title, overview,id} = this.props.pelicula;
-        console.log(poster_path);
         
         return (
             <>

@@ -7,8 +7,9 @@ import Home from "./pages/Home";
 import Favoritos from "./pages/Favoritos";
 import Populares from "./pages/Populares";
 import Cartelera from "./pages/Cartelera";
-import Detalle from "./pages/Detalle";
 import NotFound from "./pages/NotFound";
+import SearchResults from "./pages/SearchResults";
+import DetallePagina from "./pages/DetallePagina";
 
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
           <Route exact path="/favoritos" component={Favoritos} />
           <Route exact path="/peliculaspopulares" component={Populares} />
           <Route exact path="/cartelerapeliculas" component={Cartelera} />
-          <Route exact path="/pelicula/id/:id" component={Detalle} />
+          <Route exact path="/pelicula/id/:id" component={DetallePagina} />
+          <Route component={SearchResults} path="/search"/>
           <Route exact path="" component={NotFound}/> 
 
 

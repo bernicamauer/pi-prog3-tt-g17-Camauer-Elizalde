@@ -100,4 +100,4 @@ class PopularesCard extends Component {
     }
 };
 
-export default PopularesCard; 
+export default PopularesCard;
