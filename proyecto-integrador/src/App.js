@@ -5,11 +5,11 @@ import Footer from "./components/Footer/Footer";
 import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
 import Home from "./pages/Home";
 import Favoritos from "./pages/Favoritos";
-import Populares from "./pages/Populares";
 import Cartelera from "./pages/Cartelera";
 import NotFound from "./pages/NotFound";
 import SearchResults from "./pages/SearchResults";
 import DetallePagina from "./pages/DetallePagina";
+import Populares from "./pages/PopularesCard";
 
 function App() {
   return (

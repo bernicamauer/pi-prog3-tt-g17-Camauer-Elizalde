@@ -7,19 +7,62 @@ class Pelicula extends Component {
         super(props);
         
         this.state= {
-            verDescripcion: false
+            verDescripcion: false,
+            esFavorito: false
         }
-    };
+    };  
+    
+    
+
+    componentDidMount(){
+        const storage= localStorage.getItem("Favoritos")
+        if( storage !== null){
+            const parsedStorage= JSON.parse(storage);
+            const estaEnFavoritos= parsedStorage.includes(this.props.pelicula.id)
+            if(estaEnFavoritos){
+                this.setState({
+                    esFavorito: true
+                })
+            }
+        }
+    }
 
     verDescripcion()
         {this.setState({
             verDescripcion: !this.state.verDescripcion
         })};
     
+        agregarFavoritos(){
+            const storage = localStorage.getItem("Favoritos")
+            if (storage !== null){
+                const parsedStorage = JSON.parse(storage);
+                parsedStorage.push(this.props.pelicula.id)
+                const stringStorage = JSON.stringify(parsedStorage)
+                localStorage.setItem("Favoritos", stringStorage)
+            } else {
+                const primerFavorito = [this.props.pelicula.id]
+                const stringStorage  = JSON.stringify(primerFavorito)
+                localStorage.setItem("Favoritos", stringStorage)
+            }
+            this.setState({
+                esFavorito: true
+            })
+        };
     
+        quitarFavoritos(){
+            const storage= localStorage.getItem("Favoritos")
+            const parsedStorage = JSON.parse(storage);
+            const restoFavoritos= parsedStorage.filter((id) => id !== this.props.pelicula.id)
+            const stringStorage= JSON.stringify(restoFavoritos)
+            localStorage.setItem("Favoritos", stringStorage)
+            this.setState({
+                esFavorito: false
+            })
+        }; 
     
     render() {
         const {poster_path, original_title, overview,id} = this.props.pelicula;
+        console.log("titulo: ", this.props.pelicula);
         
         return (
             <>
@@ -40,7 +83,9 @@ class Pelicula extends Component {
             </section> )} 
 
             <Link to={`/pelicula/id/${id}`}>Ir a detalle</Link>
-            <button> Agregar/ quitar favoritos</button> 
+            <button onClick={() => !this.state.esFavorito ? this.agregarFavoritos() : 
+                this.quitarFavoritos()}>{!this.state.esFavorito ? "Agregar a favoritos" : "Eliminar de favoritos"}</button> 
+
 
 
 
