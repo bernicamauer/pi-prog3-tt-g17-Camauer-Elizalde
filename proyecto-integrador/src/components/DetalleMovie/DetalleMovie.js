@@ -1,5 +1,6 @@
 import { Component } from "react";
 
+
 class DetalleMovie extends Component {
     constructor(props) {
         super(props);
@@ -37,6 +38,7 @@ class DetalleMovie extends Component {
                             <p>Fecha de estreno: {pelicula.release_date}</p>
                             <p>Rating: {pelicula.vote_average}</p>
                             <p>Duracion: {pelicula.runtime}</p>
+                            <p>Genero: {pelicula.genres.map(genero => genero.name).join(", ")}</p>
                         </article>
                 
                 )}
