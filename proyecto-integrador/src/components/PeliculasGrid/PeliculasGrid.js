@@ -6,13 +6,17 @@ import "./PeliculasGrid.css";
 class PeliculasGrid extends Component {
     constructor(props) {
         super(props);
-        
+
     }
 
  
 
     render() {
-        console.log("peliculas en grid: ",this.props.peliculas );
+        const { peliculas } = this.props;
+
+        if (peliculas.length === 0) {
+            return <p>No se encontraron resultados para la búsqueda.</p>;
+        }
         
         return (
         <>
