@@ -5,7 +5,6 @@
   background-color: #1e1e1e;
 }
 
-
 .lds-spinner,
 .lds-spinner div,
 .lds-spinner div:after {
@@ -104,5 +103,31 @@
 
   100% {
     opacity: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .cardContainer {
+    flex-direction: column;
+    padding: 8px;
+  }
+
+  .pelicula-single {
+    margin-bottom: 16px;
+  }
+
+  .lds-spinner {
+    width: 50px;
+    height: 50px;
+  }
+
+  h2 {
+    font-size: 24px;
+    margin: 15px 0;
+  }
+
+  .ver-todas {
+    font-size: 14px;
+    padding: 8px 16px; 
   }
 }

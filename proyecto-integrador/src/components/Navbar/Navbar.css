@@ -29,3 +29,25 @@
     font-family: Arial, sans-serif;
     padding: 10px;
 }
+@media (max-width: 600px) {
+    .main-nav {
+      flex-direction: column;
+      height: auto;
+      padding: 10px;
+    }
+  
+    .main-nav li {
+      padding: 10px 0;
+      text-align: center;
+    }
+  
+    .main-nav img {
+      height: 50px;
+      margin: 0 auto 10px;
+    }
+  
+    .elemento {
+      font-size: 16px; 
+    }
+  }
+  
