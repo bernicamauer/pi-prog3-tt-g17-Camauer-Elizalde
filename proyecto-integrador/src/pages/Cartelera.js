@@ -71,7 +71,7 @@ class Cartelera extends Component {
     render() {
         return (
         <>
-        <form onSubmit={(e) => e.preventDefault()}>
+        <form className= "search-form" onSubmit={(e) => e.preventDefault()}>
             <input 
                 onChange= {(e) => this.handleFilterChange(e)}
                 name="peliculaFiltro"

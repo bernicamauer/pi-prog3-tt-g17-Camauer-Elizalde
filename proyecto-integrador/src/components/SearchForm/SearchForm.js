@@ -1,5 +1,6 @@
 import { Component } from "react";
 
+
 class SearchForm extends Component {
     constructor(props) {
         super(props);
@@ -29,7 +30,7 @@ class SearchForm extends Component {
         return (
             <>
                 <div>
-                    <form onSubmit={(e) => this.handleFormSubmit(e)}>
+                    <form className= "search-form" onSubmit={(e) => this.handleFormSubmit(e)}>
                         <input
                             placeholder="Busca la película"
                             name="query"

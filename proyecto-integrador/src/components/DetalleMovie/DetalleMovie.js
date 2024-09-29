@@ -1,4 +1,5 @@
 import { Component } from "react";
+import "./DetalleMovie.css"
 
 
 class DetalleMovie extends Component {
@@ -34,11 +35,11 @@ class DetalleMovie extends Component {
                         <article className='pelicula-single'>
                             <img src={`https://image.tmdb.org/t/p/original/${pelicula.poster_path}`} alt="" />
                             <h2>{pelicula.original_title}</h2>
-                            <p>Sinópsis: {pelicula.overview}</p>
-                            <p>Fecha de estreno: {pelicula.release_date}</p>
-                            <p>Rating: {pelicula.vote_average}</p>
-                            <p>Duracion: {pelicula.runtime}</p>
-                            <p>Genero: {pelicula.genres.map(genero => genero.name).join(", ")}</p>
+                            <p><strong>Sinopsis:</strong> {pelicula.overview}</p>
+                            <p><strong>Fecha de estreno:</strong> {pelicula.release_date}</p>
+                            <p><strong>Rating:</strong> {pelicula.vote_average}</p>
+                            <p><strong>Duración:</strong> {pelicula.runtime} minutos</p>
+                            <p><strong>Género:</strong> {pelicula.genres.map(genero => genero.name).join(", ")}</p>
                         </article>
                 
                 )}

@@ -9,7 +9,7 @@ import Cartelera from "./pages/Cartelera";
 import NotFound from "./pages/NotFound";
 import SearchResults from "./pages/SearchResults";
 import DetallePagina from "./pages/DetallePagina";
-import Populares from "./pages/PopularesCard";
+import Populares from "./pages/Populares";
 
 function App() {
   return (

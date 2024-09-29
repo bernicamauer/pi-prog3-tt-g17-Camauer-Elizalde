@@ -1,0 +1,45 @@
+*{
+    box-sizing: border-box;
+  }
+  
+main {
+    background-color: #1e1e1e;
+    color: #fff;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+section {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.pelicula-single {
+    flex: 0 1 calc(20% - 16px);
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+
+h2 {
+    font-size: 30px;
+    margin: 30px;
+    text-align: center;
+    width: 100%;
+}
+
+.ver-todas {
+    margin: 20px auto;
+    padding: 10px 20px;
+    border-radius: 5px;
+
+}
+
+.todas {
+    font-size: 15px;
+    color: white;
+    text-decoration: none;
+}

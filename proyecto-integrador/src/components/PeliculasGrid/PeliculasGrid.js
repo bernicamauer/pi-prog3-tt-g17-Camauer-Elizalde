@@ -15,7 +15,7 @@ class PeliculasGrid extends Component {
         const { peliculas } = this.props;
 
         if (peliculas.length === 0) {
-            return <p>No se encontraron resultados para la búsqueda.</p>;
+            return <p className="noResult">No se encontraron películas.</p>;
         }
         
         return (

@@ -1,9 +1,9 @@
 import React, {Component} from "react";
-import Pelicula from "../Pelicula/Pelicula";
+import Pelicula from "../components/Pelicula/Pelicula";
+import "./Cartelera.css"
 
 
-
-class PopularesCard extends Component {
+class Populares extends Component {
     constructor() {
         super();
         this.state= {
@@ -11,37 +11,38 @@ class PopularesCard extends Component {
             peliculasFiltradas:[],
             filterValue: "",
             isLoading: true,
-            page: 1 
+            actualPage: 1 
         }
     }
 
     componentDidMount(){
-        fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=888daf91ec4c7d2157c8904388a1ed3e' )
+        fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&api_key=888daf91ec4c7d2157c8904388a1ed3e&page=${this.state.actualPage}` )
         .then((response) => response.json())
         .then((data) => this.setState(
             {datos: this.setState({
                 peliculas: data.results,
                 peliculasFiltradas: data.results,
                 isLoading: false,
-                page: data.page 
+                actualPage: this.state.actualPage + 1
         })
             }))
         .catch(error => console.log(error));
         
     }
 
-    cargarMas(){
-        const nextPage = this.state.page + 1; 
-        fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=${nextPage}&api_key=888daf91ec4c7d2157c8904388a1ed3e`)
+    handleLoadMore(){ 
+        fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&api_key=888daf91ec4c7d2157c8904388a1ed3e&page=${this.state.actualPage}` )
         .then((response) => response.json())
-        .then((data) => {
-            this.setState({
+        .then((data) => this.setState(
+            {datos: this.setState({
                 peliculas: this.state.peliculas.concat(data.results),
-                page: data.page + 1,
-            })
+                peliculasFiltradas: this.state.peliculasFiltradas.concat(data.results),
+                isLoading: false,
+                actualPage: this.state.actualPage + 1
         })
+            }))
         .catch(error => console.log(error));
-            
+        
     }
 
     handleFilterChange(e){
@@ -56,20 +57,29 @@ class PopularesCard extends Component {
         console.log("se envio", this.state.peliculasFiltradas);
         
     }
+    handleResetFilter(){
+        this.setState(
+            {
+                filterValue:"",
+                peliculasFiltradas:this.state.peliculas
+
+            }
+        )
+    }
     
 
     render() {
         return (
         <>
-        <form onSubmit={(e) => e.preventDefault()}>
+        <form className= "search-form" onSubmit={(e) => e.preventDefault()}>
             <input 
                 onChange= {(e) => this.handleFilterChange(e)}
                 name="peliculaFiltro"
                 value= {this.state.filterValue}
                 placeholder="Busca una pelicula!"/>
             <button 
-                onClick= {()=> this.handleFormSubmit()}
-                type= "submit"> Buscar </button>
+                onClick= {()=> this.handleResetFilter()}
+                type= "submit"> Reset Filter </button>
 
             
         </form>
@@ -91,13 +101,14 @@ class PopularesCard extends Component {
         )  : (
             <p>No se encontraron películas</p>
         )
-        
     )}
+  
     </section>
-    <button onClick={() => this.cargarMas()}> Cargar Más</button>
+    <button className="load-more-btn" onClick={() => this.handleLoadMore()}> Cargar Más</button>
+     
         </>
         )
     }
 };
 
-export default PopularesCard;
+export default Populares;
